@@ -1,5 +1,14 @@
+import Home from "./pages/home/home";
+import { Person } from '@mui/icons-material';
+
 function App() {
-  return <div> In app component </div>
+  return (
+    <>
+      <Person />
+      <Home />
+    </>
+
+  );
 }
 
 export default App;
