@@ -37,13 +37,6 @@ export default function Rightbar() {
             <span className="rightbarUsername">Selina Kyle</span>
           </div>
 
-          <div className="rightbarFriend">
-            <div className="rightbarProfileImgContainer">
-              <img src="/assets/person/3.jpg" alt="" className="rightbarProfileImg" />
-              <span className="rightbarOnline"></span>
-            </div>
-            <span className="rightbarUsername">Selina Kyle</span>
-          </div>
         </ul>
       </div>
     </div>
