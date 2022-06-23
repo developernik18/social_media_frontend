@@ -4,6 +4,8 @@ import {
           HelpOutline, PlayCircleFilledOutlined, 
           RssFeed, School, WorkOutline 
         } from "@mui/icons-material"
+import CloseFriend from "../closeFriend/CloseFriend"
+import { Users } from "../../dummyData"
 
 export default function Sidebar () {
   return (
@@ -51,30 +53,10 @@ export default function Sidebar () {
         <hr className="sidebarHr"/>
 
         <ul className="sidebarFriendList">
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
-          <li className="sidebarFriend">
-            <img src="/assets/person/2.jpg" alt="" className="sidebarFriendImg" />
-            <span className="sidebarFriendName">John Doe</span>
-          </li>
+          {Users.map(user => {
+            return <CloseFriend key={user.id} user={user}/>
+          })}
+
         </ul>
       </div>
     </div>
