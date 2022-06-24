@@ -9,7 +9,7 @@ export default function Login() {
             NewSocial
           </div>
           <span className="loginDesc">
-            Connect with friends and the world on NewSocial.
+            Connect with friends and the world around you on NewSocial.
           </span>
         </div>
         <div className="loginRight">
