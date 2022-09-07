@@ -1,10 +1,31 @@
+import { AspectRatioSharp } from "@mui/icons-material";
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import ChatOnline from "../../components/chatOnline/ChatOnline";
 import Conversation from "../../components/conversations/Conversation";
 import Message from "../../components/message/Message";
 import Topbar from "../../components/topbar/Topbar";
+import { AuthContext } from "../../context/AuthContext";
 import "./messenger.css";
 
 export default function Messenger() {
+  const [conversations, setConversations] = useState([]);
+  const {user} = useContext(AuthContext);
+
+  useEffect(() => {
+    const getConversations = async () => {
+      try{
+        if (user?._id) {
+        const res = await axios.get("/conversations/"+user?._id);
+        setConversations(res.data);
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getConversations();
+  }, [user])
+
   return (
     <>
       <Topbar />
@@ -16,11 +37,9 @@ export default function Messenger() {
               placeholder="Search for friends"
               className="chatMenuInput"
             />
-            <Conversation />
-            <Conversation />
-            <Conversation />
-            <Conversation />
-            <Conversation />
+            {conversations.map((conv) => {
+              return <Conversation conversation= {conv} currentUser={user}/>
+            })}
           </div>
         </div>
         <div className="chatBox">
