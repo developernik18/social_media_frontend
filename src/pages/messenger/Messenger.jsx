@@ -34,7 +34,6 @@ export default function Messenger() {
     const getMessages = async () => {
       try {
         const res = await axios.get("/messages/"+currentChat?._id);
-        console.log(res);
         setMessages(res.data);
       } catch (error) {
         console.log(error);
