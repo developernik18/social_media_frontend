@@ -10,6 +10,7 @@ export default function Conversation({conversation, currentUser}) {
     const friendId = conversation.members.find((m) => {
       return m !== currentUser._id;
     });
+
     const getUser = async () => {
       try{
         const res = await axios("/users?userId=" + friendId);
@@ -18,17 +19,16 @@ export default function Conversation({conversation, currentUser}) {
         console.log(error);
       }
     }
-
     getUser();
   }, [currentUser, conversation])
   return (
     <div className="conversation">
       <img
-        src={user.profilePicture ? PF + user.profilePicture : PF + "person/noAvatar.png"}
+        src={user?.profilePicture ? PF + user?.profilePicture : PF + "person/noAvatar.png"}
         alt=""
         className="conversationImg"
       />
-      <span className="conversationName"> {user.username} </span>
+      <span className="conversationName"> {user?.username} </span>
     </div>
   );
 }
